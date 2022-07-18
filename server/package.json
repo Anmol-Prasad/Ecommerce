@@ -1,0 +1,30 @@
+{
+  "name": "burgershot",
+  "version": "1.0.0",
+  "description": "Best Ecommerce Site",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "nodemon index.js"
+  },
+  "author": "Anmol Prasad",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cloudinary": "^1.27.0",
+    "concurrently": "^6.2.1",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "https": "^1.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.6",
+    "nanoid": "^3.1.29",
+    "nodemon": "^2.0.12",
+    "querystring": "^0.2.1",
+    "razorpay": "^2.0.7"
+  }
+}
