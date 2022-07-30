@@ -58,6 +58,7 @@ const userController = {
         httpOnly: true,
         path: "https://burgershotserver.herokuapp.com/user/refresh_token",
       });
+      console.log(refreshtoken);
 
       res.json({ accesstoken });
     } catch (err) {
