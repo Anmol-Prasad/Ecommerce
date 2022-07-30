@@ -6,12 +6,12 @@ import authAdmin from "../middleware/authAdmin.js";
 const router = express.Router();
 
 router
-  .route("/products")
+  .route("https://burgershot-server.herokuapp.com/products")
   .get(productController.getProducts)
   .post(productController.createProduct);
 
 router
-  .route("/products/:id")
+  .route("https://burgershot-server.herokuapp.com/products/:id")
   .delete(auth, authAdmin, productController.deleteProduct)
   .put(auth, authAdmin, productController.updateProduct);
 

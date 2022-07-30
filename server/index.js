@@ -33,13 +33,13 @@ app.use(
 );
 
 //Routes
-app.use("/user", userRoutes);
-app.use("/user", paymentRouter);
+app.use("https://burgershot-server.herokuapp.com/user", userRoutes);
+app.use("https://burgershot-server.herokuapp.com/user", paymentRouter);
 
-app.use("/api", categoryRouter);
-app.use("/api", uploadRouter);
-app.use("/api", productRouter);
-app.get("/", (req, res) => {
+app.use("https://burgershot-server.herokuapp.com/api", categoryRouter);
+app.use("https://burgershot-server.herokuapp.com/api", uploadRouter);
+app.use("https://burgershot-server.herokuapp.com/api", productRouter);
+app.get("https://burgershot-server.herokuapp.com/", (req, res) => {
   res.send("Hello");
 });
 app.post("/razorpay", (req, res) => {
@@ -59,7 +59,7 @@ app.post("/razorpay", (req, res) => {
   res.send("Hello Billionaire");
 });
 
-app.post("/paydone", (req, res) => {
+app.post("https://burgershot-server.herokuapp.com/paydone", (req, res) => {
   return res.redirect("http://localhost:3000/");
 });
 

@@ -318,7 +318,7 @@ const Cart = () => {
     };
   }, []);
   const payment = (cart, total, address) => {
-    const url = "http://localhost:8000/user/payment";
+    const url = "https://burgershot-server.herokuapp.com/user/payment";
     if (address.length > 5) {
       displayRazorPay(total);
       axios.post(
