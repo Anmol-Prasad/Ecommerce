@@ -320,7 +320,6 @@ const Cart = () => {
   const payment = (cart, total, address) => {
     const url = "http://localhost:8000/user/payment";
     if (address.length > 5) {
-      console.log(address);
       displayRazorPay(total);
       axios.post(
         url,
@@ -329,6 +328,7 @@ const Cart = () => {
           headers: { Authorization: token },
         }
       );
+      console.log(address);
     } else {
       alert("Please add the shipping address");
     }

@@ -13,23 +13,23 @@ const paymentController = {
   createPayment: async (req, res) => {
     try {
       console.log(req.user);
-      // const user = await Users.findById(req.user.id).select("name email");
-      // if (!user) return res.status(400).json({ msg: "User does not exist." });
+      const user = await Users.findById(req.user.id).select("name email");
+      if (!user) return res.status(400).json({ msg: "User does not exist." });
 
-      // const { cart, total, address } = req.body;
+      const { cart, total, address } = req.body;
 
-      // const { _id, email } = user;
+      const { _id, email } = user;
 
-      // const newPayment = new Payments({
-      //   id: _id,
+      const newPayment = new Payments({
+        id: _id,
 
-      //   email,
-      //   address,
-      //   total,
-      //   cart,
-      // });
+        email,
+        address,
+        total,
+        cart,
+      });
 
-      // await newPayment.save();
+      await newPayment.save();
       res.json({ msg: "Payment Succes!" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });

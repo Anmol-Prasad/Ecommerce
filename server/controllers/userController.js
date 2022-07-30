@@ -1,5 +1,6 @@
 import User from "../models/userModel.js";
-import bcrypt from "bcrypt";
+// import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 const userController = {
@@ -55,7 +56,7 @@ const userController = {
 
       res.cookie("refreshtoken", refreshtoken, {
         httpOnly: true,
-        path: "http://localhost:8000/user/refresh_token",
+        path: " https://burgershot-server.herokuapp.com/user/refresh_token",
       });
 
       res.json({ accesstoken });
@@ -66,7 +67,7 @@ const userController = {
   logout: async (req, res) => {
     try {
       res.clearCookie("refreshtoken", {
-        path: "http://localhost:8000/user/refresh_token",
+        path: " https://burgershot-server.herokuapp.com/refresh_token",
       });
       return res.json({ msg: "Logged out" });
     } catch (err) {

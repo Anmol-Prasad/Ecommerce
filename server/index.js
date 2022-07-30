@@ -39,7 +39,9 @@ app.use("/user", paymentRouter);
 app.use("/api", categoryRouter);
 app.use("/api", uploadRouter);
 app.use("/api", productRouter);
-
+app.get("/", (req, res) => {
+  res.send("Hello");
+});
 app.post("/razorpay", (req, res) => {
   const amount = req.body.payamount;
   const currency = "INR";

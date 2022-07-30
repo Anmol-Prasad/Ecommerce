@@ -6,7 +6,8 @@ import { Box } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 import { useEffect } from "react";
 // import { useDispatch } from "react-redux";
-// import { getProducts as listProducts } from "../../Redux/Actions/ProductActions";
+// import { getProducts as listProducts } from "../../Redux/Actions/ProductActions";;
+import { Link } from "react-router-dom";
 import { GlobalState } from "../../../GlobalState";
 import { useContext } from "react";
 
@@ -133,9 +134,14 @@ const Slider2 = () => {
     <Box className={classes.component}>
       <Box className={classes.textbox}>
         <Typography className={classes.deal}>Best Deals </Typography>
-        <Button variant="contained" className={classes.button}>
-          View All
-        </Button>
+        <Link
+          to={{ pathname: "/viewall" }}
+          style={{ marginLeft: "10px", textDecoration: "none" }}
+        >
+          <Button variant="contained" className={classes.button}>
+            View All
+          </Button>
+        </Link>
       </Box>
       <Carousel
         infinite={true}
@@ -161,9 +167,14 @@ const Slider2 = () => {
               <div className={classes.pricebox}>
                 <div className={classes.actualprice}>₹{product.cost}</div>
                 <div className={classes.add}>
-                  <Button variant="contained" className={classes.cartbutton}>
-                    Add
-                  </Button>
+                  <Link
+                    to={`/detail/${product._id}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <Button variant="contained" className={classes.cartbutton}>
+                      View
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>

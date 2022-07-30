@@ -78,11 +78,14 @@ const Login = () => {
   const loginSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/user/login", { ...user });
+      await axios.post(" https://burgershot-server.herokuapp.com/user/login", {
+        ...user,
+      });
 
       localStorage.setItem("firstLogin", true);
 
       window.location.href = "/";
+      alert("Logged In");
     } catch (err) {
       alert(err.response.data.msg);
     }
