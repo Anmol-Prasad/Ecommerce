@@ -52,7 +52,7 @@ const DrawerAdminComponent = () => {
   const state = useContext(GlobalState);
   const [isLogged] = state.userAPI.isLogged;
   const logoutUser = async () => {
-    await axios.get("/user/logout");
+    await axios.get("https://burgershotserver.herokuapp.com/user/logout");
     localStorage.removeItem("firstLogin");
     window.location.href = "/";
   };

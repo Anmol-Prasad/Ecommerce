@@ -54,7 +54,7 @@ const DrawerComponent = () => {
   const classes = useStyles();
   const [cart] = state.userAPI.cart;
   const logoutUser = async () => {
-    await axios.get("https://burgershot-server.herokuapp.com/user/logout");
+    await axios.get("https://burgershotserver.herokuapp.com/user/logout");
     localStorage.removeItem("firstLogin");
     window.location.href = "/";
   };

@@ -33,12 +33,12 @@ app.use(
 );
 
 //Routes
-app.use("https://burgershotserver.herokuapp.com/user", userRoutes);
+app.use("/user", userRoutes);
 app.use("/user", paymentRouter);
 
 app.use("/api", categoryRouter);
 app.use("/api", uploadRouter);
-app.use("https://burgershotserver.herokuapp.com/api", productRouter);
+app.use("/api", productRouter);
 app.get("/", (req, res) => {
   res.send("Hello");
 });

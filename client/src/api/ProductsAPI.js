@@ -6,8 +6,12 @@ function ProductsAPI() {
   const [payments, setPayments] = useState([]);
 
   const getProducts = async () => {
-    const res = await axios.get("/api/products");
-    const res2 = await axios.get("/user/payment");
+    const res = await axios.get(
+      "https://burgershotserver.herokuapp.com/api/products"
+    );
+    const res2 = await axios.get(
+      "https://burgershotserver.herokuapp.com/user/payment"
+    );
     console.log(res2.data);
     console.log(res.data.products);
     setProducts(res.data.products);

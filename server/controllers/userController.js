@@ -31,7 +31,7 @@ const userController = {
       const refreshtoken = createRefreshToken({ id: newUser._id });
       res.cookie("refreshtoken", refreshtoken, {
         httpOnly: true,
-        path: "/user/refresh_token",
+        path: "https://burgershotserver.herokuapp.com/user/refresh_token",
       });
 
       res.json({ accesstoken });
@@ -56,7 +56,7 @@ const userController = {
 
       res.cookie("refreshtoken", refreshtoken, {
         httpOnly: true,
-        path: "/user/refresh_token",
+        path: "https://burgershotserver.herokuapp.com/user/refresh_token",
       });
 
       res.json({ accesstoken });
@@ -67,7 +67,7 @@ const userController = {
   logout: async (req, res) => {
     try {
       res.clearCookie("refreshtoken", {
-        path: " /refresh_token",
+        path: "https://burgershotserver.herokuapp.com/refresh_token",
       });
       return res.json({ msg: "Logged out" });
     } catch (err) {

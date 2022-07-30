@@ -85,7 +85,7 @@ const Create = () => {
   const registerProduct = async (e) => {
     alert("roduct");
     try {
-      await axios.post("/api/products", {
+      await axios.post("https://burgershotserver.herokuapp.com/api/products", {
         ...product,
       });
       e.preventDefault();
