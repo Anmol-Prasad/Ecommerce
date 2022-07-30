@@ -31,7 +31,7 @@ const userController = {
       const refreshtoken = createRefreshToken({ id: newUser._id });
       res.cookie("refreshtoken", refreshtoken, {
         httpOnly: true,
-        path: "/user/refresh_token",
+        path: "https://burgershot-server.herokuapp.com/user/refresh_token",
       });
 
       res.json({ accesstoken });
@@ -56,7 +56,7 @@ const userController = {
 
       res.cookie("refreshtoken", refreshtoken, {
         httpOnly: true,
-        path: " https://burgershot-server.herokuapp.com/user/refresh_token",
+        path: "https://burgershot-server.herokuapp.com/user/refresh_token",
       });
 
       res.json({ accesstoken });

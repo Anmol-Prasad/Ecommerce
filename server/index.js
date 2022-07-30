@@ -21,10 +21,10 @@ dotenv.config();
 
 //middlewares
 const app = express();
-
-app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors());
+dotenv.config();
 
 app.use(
   fileUpload({
@@ -59,11 +59,11 @@ app.post("/razorpay", (req, res) => {
   res.send("Hello Billionaire");
 });
 
-app.post("https://burgershot-server.herokuapp.com/paydone", (req, res) => {
+app.post("/paydone", (req, res) => {
   return res.redirect("http://localhost:3000/");
 });
 
-app.post("/", (req, res) => {
+app.post("https://burgershot-server.herokuapp.com/", (req, res) => {
   res.send("Payment Successful");
 });
 
@@ -73,7 +73,7 @@ const password = process.env.DB_PASSWORD;
 Connection(username, password);
 
 //Hosting on PORT
-const port = process.env.PORT || 5000;
+const port = process.env.PORT;
 app.listen(port, () => {
   console.log(`App running successfully on ${port}`);
 });
