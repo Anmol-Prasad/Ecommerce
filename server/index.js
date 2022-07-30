@@ -33,13 +33,13 @@ app.use(
 );
 
 //Routes
-app.use("https://burgershot-server.herokuapp.com/user", userRoutes);
-app.use("https://burgershot-server.herokuapp.com/user", paymentRouter);
+app.use("/user", userRoutes);
+app.use("/user", paymentRouter);
 
-app.use("https://burgershot-server.herokuapp.com/api", categoryRouter);
-app.use("https://burgershot-server.herokuapp.com/api", uploadRouter);
-app.use("https://burgershot-server.herokuapp.com/api", productRouter);
-app.get("https://burgershot-server.herokuapp.com/", (req, res) => {
+app.use("/api", categoryRouter);
+app.use("/api", uploadRouter);
+app.use("/api", productRouter);
+app.get("/", (req, res) => {
   res.send("Hello");
 });
 app.post("/razorpay", (req, res) => {
@@ -63,7 +63,7 @@ app.post("/paydone", (req, res) => {
   return res.redirect("http://localhost:3000/");
 });
 
-app.post("https://burgershot-server.herokuapp.com/", (req, res) => {
+app.post("/", (req, res) => {
   res.send("Payment Successful");
 });
 
@@ -73,7 +73,7 @@ const password = process.env.DB_PASSWORD;
 Connection(username, password);
 
 //Hosting on PORT
-const port = process.env.PORT;
+const port = process.env.PORT || 8000;
 app.listen(port, () => {
   console.log(`App running successfully on ${port}`);
 });

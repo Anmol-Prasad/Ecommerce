@@ -45,26 +45,20 @@ router.post("/upload", auth, authAdmin, (req, res) => {
 });
 
 // Delete image only admin can use
-router.post(
-  "https://burgershot-server.herokuapp.com/destroy",
-  auth,
-  authAdmin,
-  (req, res) => {
-    try {
-      const { public_id } = req.body;
-      if (!public_id)
-        return res.status(400).json({ msg: "No images Selected" });
+router.post("/destroy", auth, authAdmin, (req, res) => {
+  try {
+    const { public_id } = req.body;
+    if (!public_id) return res.status(400).json({ msg: "No images Selected" });
 
-      cloudinary.v2.uploader.destroy(public_id, async (err, result) => {
-        if (err) throw err;
+    cloudinary.v2.uploader.destroy(public_id, async (err, result) => {
+      if (err) throw err;
 
-        res.json({ msg: "Deleted Image" });
-      });
-    } catch (err) {
-      return res.status(500).json({ msg: err.message });
-    }
+      res.json({ msg: "Deleted Image" });
+    });
+  } catch (err) {
+    return res.status(500).json({ msg: err.message });
   }
-);
+});
 
 const removeTmp = (path) => {
   fs.unlink(path, (err) => {

@@ -5,7 +5,7 @@ import authAdmin from "../middleware/authAdmin.js";
 const router = express.Router();
 
 router
-  .route("https://burgershot-server.herokuapp.com/payment")
+  .route("/payment")
   .get(paymentController.getPayments)
   .post(auth, paymentController.createPayment);
 

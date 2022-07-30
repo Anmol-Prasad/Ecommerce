@@ -6,12 +6,12 @@ import authAdmin from "../middleware/authAdmin.js";
 const router = express.Router();
 
 router
-  .route("https://burgershot-server.herokuapp.com/category")
+  .route("/category")
   .get(categoryContoller.getCategories)
   .post(auth, authAdmin, categoryContoller.createCategory);
 
 router
-  .route("https://burgershot-server.herokuapp.com/category/:id")
+  .route("/category/:id")
   .delete(auth, authAdmin, categoryContoller.deleteCategory)
   .put(auth, authAdmin, categoryContoller.updateCategory);
 
