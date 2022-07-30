@@ -33,12 +33,12 @@ app.use(
 );
 
 //Routes
-app.use("/user", userRoutes);
+app.use("https://burgershotserver.herokuapp.com/user", userRoutes);
 app.use("/user", paymentRouter);
 
 app.use("/api", categoryRouter);
 app.use("/api", uploadRouter);
-app.use("/api", productRouter);
+app.use("https://burgershotserver.herokuapp.com/api", productRouter);
 app.get("/", (req, res) => {
   res.send("Hello");
 });
@@ -73,7 +73,7 @@ const password = process.env.DB_PASSWORD;
 Connection(username, password);
 
 //Hosting on PORT
-const port = process.env.PORT || 8000;
+const port = process.env.PORT;
 app.listen(port, () => {
   console.log(`App running successfully on ${port}`);
 });
