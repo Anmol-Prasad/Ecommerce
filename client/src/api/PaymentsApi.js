@@ -5,9 +5,7 @@ function PaymentsAPI() {
   const [payments, setPayments] = useState([]);
 
   const getPayments = async () => {
-    const res2 = await axios.get(
-      "https://burgershot-server.herokuapp.com/user/payment"
-    );
+    const res2 = await axios.get("/user/payment");
     console.log(res2.data);
     setPayments(res2.data);
   };
